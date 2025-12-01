@@ -1,0 +1,5 @@
+{
+  "name": "Quillt",
+  "description": "A lightweight social-coordination app to share travel plans and automatically discover when you overlap with friends.",
+  "requestFramePermissions": []
+}

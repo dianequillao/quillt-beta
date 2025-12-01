@@ -1,0 +1,30 @@
+# Node dependencies
+node_modules
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# Build output (we rebuild inside the container)
+build
+dist
+
+# Git / metadata
+.git
+.gitignore
+
+# Local tooling / editor
+.vscode
+.idea
+
+# Environment & config
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+*.log
+
+# Docker-related
+Dockerfile
+docker-compose.yml
