@@ -11,7 +11,10 @@ interface PlanCardProps {
 
 export const PlanCard: React.FC<PlanCardProps> = ({ plan, user, isOwner, overlaps }) => {
   const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
+    if (!dateStr) return '';
+    // Fix: Parse YYYY-MM-DD explicitly to avoid UTC timezone shifts (off-by-one errors)
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   };
 

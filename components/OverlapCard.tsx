@@ -8,7 +8,11 @@ interface OverlapCardProps {
 
 export const OverlapCard: React.FC<OverlapCardProps> = ({ overlap }) => {
   const formatDate = (dateStr: string) => {
-    return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    if (!dateStr) return '';
+    // Fix: Parse YYYY-MM-DD explicitly to avoid UTC timezone shifts (off-by-one errors)
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   };
 
   return (
